@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Regression Lab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <style>
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 24px; }
+      code, pre { background: #f6f8fa; padding: 2px 6px; border-radius: 4px; }
+      .row { display: flex; gap: 16px; flex-wrap: wrap; }
+      .card { border: 1px solid #e5e7eb; border-radius: 10px; padding: 16px; min-width: 320px; flex: 1; }
+      button { padding: 10px 12px; border-radius: 8px; border: 1px solid #d1d5db; background: white; cursor: pointer; }
+      button:hover { background: #f3f4f6; }
+      input { padding: 10px 12px; border-radius: 8px; border: 1px solid #d1d5db; width: 100%; }
+      small { color: #6b7280; }
+      .danger { color: #b91c1c; }
+    </style>
+  </head>
+  <body>
+    <h1>Regression Lab</h1>
+    <p>
+      This mini app exists to test practical backend engineering skills:
+      fixing regressions, writing tests, and improving performance.
+    </p>
+
+    <p>
+      API base: <code>/api/</code> — try <code>/api/orders/summary/</code> after seeding.
+    </p>
+
+    <div class="row">
+      <div class="card">
+        <h3>Quick actions</h3>
+        <button id="seedBtn">Seed sample data</button>
+        <p><small>Requires server running. Calls <code>POST /api/dev/seed/</code>.</small></p>
+
+        <h4>Cancel an order (may reveal a bug)</h4>
+        <input id="orderId" placeholder="Order ID (e.g., 1)"/>
+        <button id="cancelBtn">Cancel order</button>
+        <p id="cancelMsg"></p>
+      </div>
+
+      <div class="card">
+        <h3>Performance check</h3>
+        <p>Fetch summary (this endpoint is intentionally slow):</p>
+        <button id="summaryBtn">GET /api/orders/summary/</button>
+        <pre id="summaryOut" style="max-height: 420px; overflow:auto;"></pre>
+        <p class="danger" id="summaryErr"></p>
+      </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
